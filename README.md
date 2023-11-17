@@ -1,4 +1,4 @@
-# Bridge Troll Toll 
+# Bridge Troll Toll Calculator
 
 ## Week 7 Large group project
 
@@ -31,7 +31,7 @@ Additionally, the app will use the [Auckland Transport API](https://nzta.govt.nz
 
 ### MVP
 
-As a troll toll operator:
+As a non-registered troll toll operator:
 * I want to view a list of bridges in Auckland and their stats
 * I want to see an average estimate of how much toll can be collected per hour.
 
@@ -48,6 +48,7 @@ As a toll operator:
 
 
 ### Stretchier Stretch
+
 * I want to analyze toll collection trends based on different times of the day through visualisations.
 * I want to identify peak hours for each bridge to maximize revenue through visualisation.
 
