@@ -22,6 +22,9 @@ It would be wise to consider the troll client when building the app, they are kn
 
 **Troll Accessability:** 
 
+When designing and building the troll toll calculator app, it's crucial to cater to the unique needs of our troll users. This means implementing large, easily clickable buttons to accommodate their robust fingers and opting for a limited color palette to ensure readability amidst their sensitive eyesight. By prioritising these accessibility features, we can guarantee a smoother and more enjoyable experience for our troll users as they navigate the app.
+
+
 ## Getting Started
 
 A boilerplate is already set up for you with everything you will need to get started. This boilerplate is set up to use:
@@ -33,6 +36,8 @@ A boilerplate is already set up for you with everything you will need to get sta
 * [Sass](https://sass-lang.com/)
 
 There is already some started data in the database on the Auckland bridges (you may wish to add more fields as you go or if you wish to add data from external APIs). 
+
+In the github projects linked to this repo, there are starter tasks to ensure good planning and fullstack features for each pair linked to each user story. 
 
 
 ## User Stories
@@ -68,7 +73,9 @@ As a registered toll operator user:
 * I want to see any other live analytics that might increase toll revenue and how they trend over time.
 * I want to automate every time I would take a toll at my current active bridge.
 
-## Merging to main/ dev Checklist
+## Pull Requests: merging to main/ dev branch checklist
+
+Before you merge to main, the team-lead (Gaby) will run through the following checklist before accepting your pull request:
 
 - 80% test coverage 
 - file and function naming conventions are maintained across the app
