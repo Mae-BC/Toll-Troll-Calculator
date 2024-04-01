@@ -18,7 +18,7 @@ export default function Bridges() {
 
   return (
     <>
-      <h1>Bridge Toll Calculater</h1>
+      <h1>Bridge Toll Calculater 🧌</h1>
       <ul>
         {bridges.map((br) => {
           return <li>{br.name}</li>
