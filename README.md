@@ -54,13 +54,13 @@ As a registered troll toll operator:
 * I want to be able to sign in with a username 
 * I want to be able to save my favourite bridges
 * I want to set one bridge as my active-bridge, and no other troll can set it
+* I want to log each time I take a toll on my active bridge with a running total on how much toll I have collected on that bridge
 
 
 ### Stretch
 
 As a registered troll toll operator user:  
 * I want to be able to log in to my account set up using auth
-* I want to log each time I take a toll
 * I want to see real live traffic data for each bridge using an external source (API)
 * I want to see how the traffic data influences how much troll money can be made at each bridge 
 
