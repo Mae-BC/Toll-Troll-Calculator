@@ -2,53 +2,62 @@
 
 ## Week 7 Large group project
 
-The cost of living is on the rise, and house prices are skyrocketing. Fortunately, here in Wellington, we are safe from traffic monetization, unlike our friends in Auckland who have to deal with the trolls that live under their landmark bridges. There is a lot of competition, and trolls are demanding smarter ways to optimize their toll revenue. That's where we come in with our Bridge Troll Toll Calculator app.
+The cost of living is on the rise, and house prices are skyrocketing. Fortunately, here in Wellington, we are safe from traffic monetisation, unlike our friends in Auckland who have to deal with the trolls that live under their landmark bridges. It's tough for a troll in 2024. There is a lot of competition and not a lot of good resources for trolls. Trolls are are the hunt for smarter, more digital ways to optimize their toll revenue. That's where we come in with our *Bridge Troll Toll Calculator* app.
 
 The goal of this app is to provide a platform for Auckland-based bridge troll toll-takers to make informed decisions on which bridge to live under and optimize their toll revenue by analyzing live data from sources such as **Waka Kotahi: Auckland Traffic API**. You can use this or similar APIs to fetch real-time data on/near bridge locations, allowing toll operators to assess the best times of the day for collections and other factors influencing toll collection.
+
+The extended timeframe for this project presents an opportunity for comprehensive planning and a deeper understanding of how you collaborate in groups. Use this time wisely to engage in discussions about your stress profiles, articulate your learning goals, and define roles within the team. Consider incorporating proper wireframes or designs using tools such as Figma, and take advantage of this phase to craft thorough documentation for the project. This strategic approach will not only enhance the efficiency of your teamwork but also contribute to the overall success of the project.  
 
 ## Domain Knowledge
 
 Trolls have no use for our dollars and cents. You need to know about troll currency to display information that is useful to them. Usually, a troll toll charge is around 5 rock candies per vehicle crossing a bridge. Usually, payment is automated using the cars' license plates. Some drivers pay ahead. 
 
-**About Troll Curcuncy:** 
+**About Troll Currency:** 
 
 - 1Ȼ is 1 troll rock candy, the smallest division of currency 
 - 100 Rock Candies = 1 Gold Ring (AuR) : 10Ȼ = 1AuR
 - 100 Gold Rings = 1 Goat (GT) : 100AuR = 1 GT
 
-## The Tech
+It would be wise to consider the troll client when building the app, they are known to be tough customers. 
 
-A Boilerplate is already set up for you with everything you will need to get started. This boilerplate is set up to use:
+**Troll Accessability:** 
+
+## Getting Started
+
+A boilerplate is already set up for you with everything you will need to get started. This boilerplate is set up to use:
 
 * [React](https://reactjs.org/docs/getting-started.html)
 * [ReactQuery](https://tanstack.com/query/v4/docs/react/overview) 
 * [Express](https://expressjs.com/en/api.html)
 * [Knex.js](https://knexjs.org/)
 * [Sass](https://sass-lang.com/)
-* [Auth0]([https://auth0.com/](https://oauth.net/2/))   
 
-Additionally, the app will use the [Auckland Transport API](https://nzta.govt.nz/traffic-and-travel-information/use-our-data/about-the-apis/auckland-traffic-api/) to fetch real-time data on bridges and tolls.
+There is already some started data in the database on the Auckland bridges (you may wish to add more fields as you go or if you wish to add data from external APIs). 
+
 
 ## User Stories
+
+*The product owner and team might have reason to change/update these to align with client needs or available data. Please make sure you confirm with your team lead (Gaby) first.*
 
 ### MVP
 
 As a non-registered troll toll operator:
-* I want to view a list of bridges in Auckland and their stats
-* I want to see an average estimate of how much toll a bridge-troll can be collect for each bridge.
+* I want to view a list of bridges in Auckland and associated stats
+* I want to view a single bridge with all it's data
 
-As a registered troll toll operator user:  
-* I want to be able to log in to my account
-* I want to be able to save my favourite bridges 
+As a registered troll toll operator:
+* I want to be able to sign in with a username 
+* I want to be able to save my favourite bridges
+* I want to set one bridge as my active-bridge, and no other troll can set it
 
 
 ### Stretch
 
-As a registered toll operator user:
-* I want to see real live traffic data for each bridge 
-* I want to compare toll revenue between different bridges.
-* I want to see any other live analytics that might increase toll revenue
-
+As a registered troll toll operator user:  
+* I want to be able to log in to my account set up using auth
+* I want to log each time I take a toll
+* I want to see real live traffic data for each bridge using an external source (API)
+* I want to see how the traffic data influences how much troll money can be made at each bridge 
 
 ### Stretchier Stretch
 
@@ -56,6 +65,19 @@ As a registered toll operator user:
 * I want to analyze toll collection trends based on different times of the day through visualisations.
 * I want to identify peak hours for each bridge to maximize revenue through visualisation.
 * I want to receive automated recommendations for adjusting toll rates during peak hours.
+* I want to see any other live analytics that might increase toll revenue and how they trend over time.
+* I want to automate every time I would take a toll at my current active bridge.
+
+## Merging to main/ dev Checklist
+
+- 80% test coverage 
+- file and function naming conventions are maintained across the app
+- errors are well handled
+- no sensitive data should be exposed on the client side
+- it passes npm run lint without any code-related warnings or errors
+- no unnecessary comments or log messages are remaining
+- that Types are used where applicable, and any Type issues should be resolved
+- user-facing updates (front end/ css crew) should be checked for accessibility concerns (using the WAVE tool)
 
 
 ---
@@ -107,10 +129,7 @@ Here is a start on your database you can update these in your documentation.
 | bridgeId | integer | Bridge ID associated with the toll data |
 | timestamp | date/time | Date and time of the toll collection |
 | revenue | decimal | Amount of revenue collected during the toll |
-
-## Authentication
-
-Follow the setting-up-auth.md document in this repo to set up auth. It was taken from a previous challenge so some steps might be missing. 
+ 
 
 ---
 
