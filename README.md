@@ -77,18 +77,33 @@ As a registered toll operator user:
 
 Before you merge to main, the team-lead (Gaby) will run through the following checklist before accepting your pull request:
 
-- 80% test coverage 
-- file and function naming conventions are maintained across the app
-- errors are well handled
-- no sensitive data should be exposed on the client side
-- it passes npm run lint without any code-related warnings or errors
-- no unnecessary comments or log messages are remaining
-- that Types are used where applicable, and any Type issues should be resolved
-- user-facing updates (front end/ css crew) should be checked for accessibility concerns (using the WAVE tool)
+* 80% test coverage 
+* file and function naming conventions are maintained across the app
+* errors are well handled
+* no sensitive data should be exposed on the client side
+* it passes npm run lint without any code-related warnings or errors
+* no unnecessary comments or log messages are remaining
+* that Types are used where applicable, and any Type issues should be resolved
+* user-facing updates (front end/ css crew) should be checked for accessibility concerns (using the WAVE tool)
 
 
 ---
 *Here is some starter documentation to get things going, you will update this as a team:* 
+
+## Git Workflow
+
+**GENERAL GUIDELINES**
+-**BEFORE* creating your feature branch pull from main
+-**ALWAYS* create a feature branch, with a clear name indicating its purpose e.g home-component
+-some kind of loose-control or idea of how long a branch should be active for. merging small amounts and more often is good.
+
+**BEFORE SUBMITTING PULL REQUEST**
+
+where appropriate use correct error handling e.g try/catch and using correct error codes.
+remove commented out code and console.logs
+run npm lint and correct any linting errors
+that Types are used where applicable, and any Type issues should be resolved
+user-facing updates (front end/ css crew) should be checked for accessibility concerns (using the WAVE tool)
 
 ## Views (Client Side)
 
