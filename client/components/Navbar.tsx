@@ -16,6 +16,8 @@ export default function Navbar() {
   }
   return (
     <div className="navbar">
+      <Logo />
+      <TitleCard />
       {/* auth stuff */}
       <div>
         <IfAuthenticated>
@@ -27,9 +29,6 @@ export default function Navbar() {
         </IfNotAuthenticated>
       </div>
       {/* auth stuff end */}
-      <Logo />
-      <TitleCard />
-      <span>Sign In</span>
     </div>
   )
 }
