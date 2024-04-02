@@ -1,5 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
-import { Bridge } from '../../models/bridge.ts'
+import { Link } from 'react-router-dom'
 import { getBridges } from '../api/bridge.ts'
 import { useQuery } from '@tanstack/react-query'
 
@@ -9,8 +8,6 @@ export default function Bridges() {
     error,
     isLoading,
   } = useQuery({ queryKey: ['bridges'], queryFn: getBridges })
-
-  const { id } = useParams()
 
   if (error) {
     return <p>Your bridges are gone! What a massive error</p>

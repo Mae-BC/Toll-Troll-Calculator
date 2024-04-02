@@ -17,8 +17,6 @@ function SingleBridge() {
   if (isLoading) return <div>Loading...</div>
   if (error || !bridge) return <div>Error</div>
 
-  // need to use snake case format from db table for yearBuilt, LengthMeters and AddByUser.
-  // Possibly need to update Bridge Model to remove errors below:
   return (
     <div>
       <h1>This is a single Bridge</h1>
@@ -27,10 +25,10 @@ function SingleBridge() {
         <li>ID: {bridge.id}</li>
         <li>Location: {bridge.location}</li>
         <li>Type: {bridge.type}</li>
-        <li>Year Built: {bridge.year_built}</li>
-        <li>Length(meters): {bridge.length_meters}</li>
+        <li>Year Built: {bridge.yearBuilt}</li>
+        <li>Length(meters): {bridge.lengthMeters}</li>
         <li>Lanes: {bridge.lanes}</li>
-        <li>Added By: {bridge.added_by_user}</li>
+        <li>Added By: {bridge.addedByUser}</li>
       </ul>
     </div>
   )
