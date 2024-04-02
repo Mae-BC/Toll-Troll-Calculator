@@ -8,5 +8,5 @@ export async function getBridges(db = connection): Promise<Bridge[]> {
 }
 
 export async function saveFavBridge(bridgeid: number, trollid: number) {
-  return db('FavouriteBridgesJunction').insert('bridgeid', 'trollid')
+  return db('FavouriteBridgesJunction').insert({ bridgeid, trollid })
 }

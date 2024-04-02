@@ -19,17 +19,8 @@ router.get('/', async (req, res) => {
   }
 })
 
-// const registered = (req, res, next) => {
-//   if (req.isRegistered) {
-//     return next()
-//   } else {
-//     res.status(401).json({ message: 'Unauthorized' })
-//   }
-// }
-
 router.post('/fav', async (req, res) => {
   const { bridgeid, trollid } = req.body
-
   try {
     await db.saveFavBridge(bridgeid, trollid)
     res.json({ message: 'saved favourites' })
