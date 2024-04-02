@@ -1,7 +1,5 @@
-import * as db from '../../../server/db/connection'
-import connection from '../../../server/db/connection'
-import { getBridges } from '../../../server/db/bridges'
-// import { renderRoute } from '../../test/setup.tsx'
+import connection from '../connection'
+import { getBridges, getBridgeById } from '../bridges'
 
 import { describe, it, expect, beforeAll, beforeEach, afterAll } from 'vitest'
 
@@ -15,9 +13,17 @@ beforeEach(async () => {
 
 describe('getBridges', () => {
   it('should show all bridges', async () => {
-    console.log(db)
     const allBridges = await getBridges()
     expect(allBridges).toHaveLength(13)
+  })
+})
+
+describe('getBridgeById', () => {
+  it('should show a single bridge by its id', async () => {
+    const id = 14
+    const singleBridge = await getBridgeById(id)
+    expect(singleBridge.id).toBe(14)
+    expect(singleBridge.name).toBe('Auckland Harbour Bridge')
   })
 })
 
