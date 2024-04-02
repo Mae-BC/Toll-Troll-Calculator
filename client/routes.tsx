@@ -2,11 +2,11 @@ import { Route, createRoutesFromElements } from 'react-router-dom'
 
 import App from './components/App.tsx'
 import Bridges from './components/Bridges.tsx'
-import Bridge from './components/Bridge.tsx'
+import SingleBridge from './components/SingleBridge.tsx'
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
     <Route index element={<Bridges />} />
-    <Route path="/:id" element={<Bridge />} />
+    <Route path="/:id" element={<SingleBridge />} />
   </Route>,
 )

@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import * as api from '../api/bridge'
 import { useQuery } from '@tanstack/react-query'
 
-function Bridge() {
+function SingleBridge() {
   const { id } = useParams()
 
   const {
@@ -27,4 +27,4 @@ function Bridge() {
   )
 }
 
-export default Bridge
+export default SingleBridge
