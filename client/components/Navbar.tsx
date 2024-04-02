@@ -17,9 +17,11 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <Logo />
-      <TitleCard />
+      <div className="title-card">
+        <TitleCard />
+      </div>
       {/* auth stuff */}
-      <div>
+      <div className="sign-in">
         <IfAuthenticated>
           <button onClick={handleSignOut}>Sign out</button>
           {user && <p>Signed in as: {user?.nickname}</p>}
