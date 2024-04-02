@@ -3,6 +3,7 @@ import { Bridge } from '../../models/bridge.ts'
 import { JwtRequest } from '../auth0.ts'
 
 import * as db from '../db/bridges.ts'
+import { RouterProvider } from 'react-router-dom'
 
 const router = express.Router()
 
@@ -18,4 +19,23 @@ router.get('/', async (req, res) => {
   }
 })
 
+// const registered = (req, res, next) => {
+//   if (req.isRegistered) {
+//     return next()
+//   } else {
+//     res.status(401).json({ message: 'Unauthorized' })
+//   }
+// }
+
+router.post('/fav', async (req, res) => {
+  const { bridgeid, trollid } = req.body
+
+  try {
+    await db.saveFavBridge(bridgeid, trollid)
+    res.json({ message: 'saved favourites' })
+  } catch (error) {
+    console.error(error)
+    res.status(500).send('shits fucked')
+  }
+})
 export default router
