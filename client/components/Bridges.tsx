@@ -18,7 +18,6 @@ export default function Bridges() {
   if (!bridges || isLoading) {
     return <p>Fetching bridges from auckland...</p>
   }
-  console.log(bridges)
 
   return (
     <>
