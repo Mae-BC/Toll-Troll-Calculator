@@ -1,8 +1,10 @@
+import Logo from './Logo'
+import TitleCard from './TitleCard'
+import '../styles/navbar.css'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated.tsx'
 import { useAuth0 } from '@auth0/auth0-react'
 
-export default function Nav() {
-
+export default function Navbar() {
   const { user, logout, loginWithRedirect } = useAuth0()
 
   const handleSignOut = () => {
@@ -13,7 +15,8 @@ export default function Nav() {
     loginWithRedirect()
   }
   return (
-    <>
+    <div className="navbar">
+      {/* auth stuff */}
       <div>
         <IfAuthenticated>
           <button onClick={handleSignOut}>Sign out</button>
@@ -23,7 +26,10 @@ export default function Nav() {
           <button onClick={handleSignIn}>Sign in</button>
         </IfNotAuthenticated>
       </div>
-      <h1>hello world</h1>
-    </>
+      {/* auth stuff end */}
+      <Logo />
+      <TitleCard />
+      <span>Sign In</span>
+    </div>
   )
 }

@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom'
-import Nav from './NavTemp.tsx'
+import Navbar from './Navbar'
 
 export default function AppLayout() {
   return (
     <>
-    <Nav />
       <main>
+        <Navbar />
         <Outlet />
       </main>
     </>
