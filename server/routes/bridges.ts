@@ -21,6 +21,8 @@ router.get('/', async (req, res) => {
 
 router.post('/fav', async (req, res) => {
   const { bridgeid, trollid } = req.body
+  console.log('ive been hit at /fav')
+  console.log(req.body)
   try {
     await db.saveFavBridge(bridgeid, trollid)
     res.json({ message: 'saved favourites' })

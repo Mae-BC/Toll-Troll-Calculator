@@ -1,30 +1,23 @@
-import { useState } from 'react'
 import { useQueryClient, useMutation } from '@tanstack/react-query'
 import { saveBridge } from '../api/bridge'
 
-//button for every bridge
-//onClick use the savebridge function
+export default function SaveBridge(props) {
+  const bridgeid = 9
+  const trollid = 7
+  const data = { bridgeid, trollid }
+  // const id = props.props
+  const queryClient = useQueryClient()
+  const mutation = useMutation({
+    mutationFn: () => saveBridge(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [''] })
+    },
+  })
 
-export default function SaveBridge() {
-  const bridgeId = 9
-  const trollId = 7
-  //   const queryClient = useQueryClient()
-
-  //   const { save, setsave } = useState()
-
-  //   const addMutate = useMutation({
-  //     mutationFn: async (bridgeid: number, trollid: number) =>
-  //       await api.saveBridge(bridgeid, trollid),
-  //     onSuccess: () => {
-  //       queryClient.invalidateQueries({ queryKey: ['bridges'] })
-  //     },
-  //   })
-
-  //   }
-  const { mutate } = useMutation(saveBridge)
-
-  const handleClick = () => {
-    mutate({ bridgeid: bridgeId, trollid: trollId })
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    console.log(id)
+    mutation.mutate()
   }
 
   return (

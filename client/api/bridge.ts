@@ -9,6 +9,6 @@ export async function getBridges(): Promise<Bridge[]> {
 }
 
 export async function saveBridge(data: BridgeSave) {
-  const res = await request.post(bridgeURL).send({ data })
+  const res = await request.post(`${bridgeURL}/fav`).send({ data })
   return res.body
 }
