@@ -1,0 +1,15 @@
+
+.navbar {
+  background-color: green;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.2rem;
+}
+
+.logo-image {
+  max-width: 5rem;
+  margin: 0.5rem;
+  padding: 3px 0 0 3px;
+}
