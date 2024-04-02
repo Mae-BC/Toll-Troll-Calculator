@@ -95,4 +95,6 @@ describe('<Bridges />', () => {
   `)
     expect(scope.isDone()).toBe(true)
   })
+
+  it.todo('should test for a signed in user', async () => {})
 })
