@@ -1,9 +1,6 @@
 import express from 'express'
-import { Bridge } from '../../models/bridge.ts'
-import { JwtRequest } from '../auth0.ts'
 
 import * as db from '../db/bridges.ts'
-import { RouterProvider } from 'react-router-dom'
 
 const router = express.Router()
 
@@ -20,15 +17,25 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/fav', async (req, res) => {
-  const { bridgeid, trollid } = req.body
+  const bridgeid = parseInt(req.body.data.bridgeid)
+  const trollid = parseInt(req.body.data.trollid)
   console.log('ive been hit at /fav')
-  console.log(req.body)
+  console.log(req.body.data)
+  console.log(bridgeid)
+  console.log(trollid)
   try {
-    await db.saveFavBridge(bridgeid, trollid)
-    res.json({ message: 'saved favourites' })
+    const favStatus = await db.isFav(bridgeid, trollid)
+    if (favStatus) {
+      await db.deleteFavBridge(bridgeid, trollid)
+      res.json({ message: 'deleted favourites' })
+    } else {
+      await db.saveFavBridge(bridgeid, trollid)
+      res.json({ message: 'saved favourites' })
+    }
   } catch (error) {
     console.error(error)
     res.status(500).send('shits fucked')
   }
 })
+
 export default router

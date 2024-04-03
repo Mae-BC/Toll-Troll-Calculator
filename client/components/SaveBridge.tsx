@@ -2,10 +2,9 @@ import { useQueryClient, useMutation } from '@tanstack/react-query'
 import { saveBridge } from '../api/bridge'
 
 export default function SaveBridge(props) {
-  const bridgeid = 9
   const trollid = 7
+  const bridgeid = props.props
   const data = { bridgeid, trollid }
-  // const id = props.props
   const queryClient = useQueryClient()
   const mutation = useMutation({
     mutationFn: () => saveBridge(data),
@@ -16,7 +15,7 @@ export default function SaveBridge(props) {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    console.log(id)
+    console.log(bridgeid)
     mutation.mutate()
   }
 
