@@ -1,14 +1,25 @@
 import React, { useState } from 'react'
-import { BridgeProps } from '../../../models/bridge'
+import { BridgeProps, NewToll } from '../../../models/bridge'
 import './ActiveBridge.css'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { submitTollAnalytic } from '../../api/bridge'
 
+// maybe use just the id as a prop insead of data >?
 export default function TollCollectionForm(props: BridgeProps) {
-  const bridge = props.data
+  const bridgeid = props.data.activebridge
 
   const [toll, setToll] = useState({
     rockCandies: '',
     goldRings: '',
     goats: '',
+  })
+
+  const queryClient = useQueryClient()
+  const mutation = useMutation({
+    mutationFn: (toll: NewToll) => submitTollAnalytic(toll),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['income'] })
+    },
   })
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,13 +29,27 @@ export default function TollCollectionForm(props: BridgeProps) {
       : null
   }
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const goldConversion = 100 * Number(toll.goldRings)
+    const goatconversion = 10000 * Number(toll.goats)
+    const revenue = Number(toll.rockCandies) + goatconversion + goldConversion
+
+    const newToll = {
+      bridgeid,
+      revenue,
+      troll_id: 3,
+    }
+    mutation.mutate(newToll)
+  }
+
   const Total = `${toll.goats} 🐐, ${toll.goldRings} 💍, ${toll.rockCandies} 🤘`
 
   return (
     <div>
       <h2>Toll Troll Collection Form</h2>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <input
             placeholder="Goats🐐"
@@ -54,7 +79,11 @@ export default function TollCollectionForm(props: BridgeProps) {
             maxLength={2}
           ></input>
         </div>
-        <p>Total Toll Charge:{Total}</p>
+        <p>
+          <strong>Total Toll Charge:</strong>
+          <hr />
+          {Total}
+        </p>
         <button>Charge Toll</button>
       </form>
     </div>

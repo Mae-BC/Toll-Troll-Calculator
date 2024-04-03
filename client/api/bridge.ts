@@ -1,5 +1,10 @@
 import request from 'superagent'
-import { Bridge } from '../../models/bridge.ts'
+import {
+  AnalyticRequest,
+  Bridge,
+  Revenue,
+  NewToll,
+} from '../../models/bridge.ts'
 
 const bridgeURL = '/api/v1/bridges'
 
@@ -10,5 +15,19 @@ export async function getBridges(): Promise<Bridge[]> {
 
 export async function getActiveBridgeForUser(id: number): Promise<Bridge> {
   const res = await request.get(`${bridgeURL}/activebridge/${id}`)
+  return res.body
+}
+
+export async function getBridgeRevenueForTroll(
+  trollid: number,
+  bridgeid: number,
+): Promise<Revenue> {
+  console.log(trollid, bridgeid)
+  const res = await request.get(`${bridgeURL}/analytics/${trollid}/${bridgeid}`)
+  return res.body
+}
+
+export async function submitTollAnalytic(newToll: NewToll) {
+  const res = await request.post(`${bridgeURL}/toll`).send(newToll)
   return res.body
 }

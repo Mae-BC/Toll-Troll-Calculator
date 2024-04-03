@@ -5,52 +5,41 @@ import { getActiveBridgeForUser } from '../../api/bridge'
 import './ActiveBridge.css'
 
 export function ActiveBridge() {
-  //Dummy data for removal
-  const bridge = {
-    id: 2,
-    name: 'Grafton Bridge',
-    location: 'Grafton Gully',
-    type: 'Road bridge',
-    yearBuilt: 1910,
-    lengthMeters: 100,
-    lanes: 4,
-    addedByUser: null,
-    img_url:
-      'https://d2rjvl4n5h2b61.cloudfront.net/media/images/nlnzimage_PWZLIhT.width-800.jpg',
-    income: '10🐐, 55💍, 12🤘',
-  }
   // Needs to be updated with Auth implementation to get a query going with user information
-  const Trollid = 1
+  const Trollid = 3
 
   // Query that grabs the logged in trolls active bridge as the data
   const {
-    data: bridgequery,
+    data: bridge,
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ['activebridge'],
+    queryKey: ['activebridge', Trollid],
     queryFn: () => getActiveBridgeForUser(Trollid),
   })
 
-  if (isError) {
+  if (isError || !bridge) {
     return <p>Unable to retrieve Trolls active bridge</p>
   }
   if (isLoading) {
     return <p>Grabbing your Bridge</p>
   }
 
-  console.log('this is a specific bridge', bridgequery)
+  const activeBridge = { ...bridge }
 
   return (
-    <div>
-      <div>
-        <Stats bridge={bridge} />
+    <div className="active-bridge-container">
+      <div className="component-container">
+        <Stats data={activeBridge} />
       </div>
-      <div>
-        <img src={bridge.img_url} alt="" />
+      <div className="component-container">
+        <img
+          src="https://d2rjvl4n5h2b61.cloudfront.net/media/images/nlnzimage_PWZLIhT.width-800.jpg"
+          alt=""
+        />
       </div>
-      <div>
-        <TollCollectionForm data={bridge} />
+      <div className="component-container">
+        <TollCollectionForm data={activeBridge} />
       </div>
     </div>
   )
