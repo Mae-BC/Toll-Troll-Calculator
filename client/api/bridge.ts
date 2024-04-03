@@ -13,6 +13,11 @@ export async function getBridges(): Promise<Bridge[]> {
   return res.body
 }
 
+export async function getBridgeById(id: number): Promise<Bridge> {
+  const res = await request.get(`${bridgeURL}/${id}`)
+  return res.body
+}
+
 export async function getActiveBridgeForUser(id: number): Promise<Bridge> {
   const res = await request.get(`${bridgeURL}/activebridge/${id}`)
   return res.body

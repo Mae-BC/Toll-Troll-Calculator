@@ -1,6 +1,4 @@
 import express from 'express'
-import { Bridge } from '../../models/bridge.ts'
-import { JwtRequest } from '../auth0.ts'
 
 import * as db from '../db/bridges.ts'
 
@@ -11,6 +9,17 @@ router.get('/', async (req, res) => {
   try {
     const bridges = await db.getBridges()
     res.json(bridges)
+  } catch (error) {
+    console.error(error)
+    res.status(500).send('Something went wrong')
+  }
+})
+
+router.get('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const bridge = await db.getBridgeById(id)
+    res.json(bridge)
   } catch (error) {
     console.error(error)
     res.status(500).send('Something went wrong')

@@ -7,6 +7,21 @@ export async function getBridges(): Promise<Bridge[]> {
   return db('bridges').select('*')
 }
 
+export async function getBridgeById(id: number): Promise<Bridge> {
+  return db('bridges')
+    .where('id', id)
+    .select(
+      'id',
+      ' name',
+      ' location',
+      ' type',
+      ' year_built as yearBuilt',
+      ' length_meters as lengthMeters',
+      'added_by_user as addedByUser',
+    )
+    .first()
+}
+
 export async function getTrollsActiveBridge(id: number): Promise<ActiveBridge> {
   return db('Bridges')
     .select('*')
@@ -29,4 +44,3 @@ export async function getTrollsActiveBridgeRevenue(
 export async function addToll(newTollData: newToll) {
   await db('TollAnalytics').insert(newTollData)
 }
-//TOoanalytics might be wrong - promise? ?

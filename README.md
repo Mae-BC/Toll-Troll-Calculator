@@ -61,13 +61,14 @@ As a registered troll toll operator:
 
 As a registered troll toll operator user:  
 * I want to be able to log in to my account set up using auth
+* I want to have a specific profile page (trollfile page) that displays my favourite bridges and my active bridge
 * I want to see real live traffic data for each bridge using an external source (API)
 * I want to see how the traffic data influences how much troll money can be made at each bridge 
 
 ### Stretchier Stretch
 
 As a registered toll operator user:
-* I want to analyze toll collection trends based on different times of the day through visualisations.
+* I want to analyse toll collection trends based on different times of the day through visualisations.
 * I want to identify peak hours for each bridge to maximize revenue through visualisation.
 * I want to receive automated recommendations for adjusting toll rates during peak hours.
 * I want to see any other live analytics that might increase toll revenue and how they trend over time.

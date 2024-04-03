@@ -1,0 +1,25 @@
+
+.navbar {
+  background-color: rgb(40 54 24);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.2rem;
+}
+
+.logo-image {
+  width: 6rem;
+  margin: 0.5rem;
+  padding: 3px 0 0 3px;
+}
+
+.title-card {
+  color: rgb(254 250 225);
+}
+
+.sign-in {
+  width: 6rem;
+  color: rgb(254 250 225);
+  background-color: pink;
+}
