@@ -1,5 +1,6 @@
 import React from 'react'
 import { Bridge } from '../../../models/bridge'
+import './ActiveBridge.css'
 
 interface StatsProps {
   bridge: Bridge

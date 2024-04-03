@@ -10,5 +10,5 @@ export interface Bridge {
 }
 
 export interface BridgeProps {
-  bridge: Bridge
+  data: Bridge
 }

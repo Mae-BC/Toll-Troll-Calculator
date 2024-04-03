@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { BridgeProps } from '../../../models/bridge'
+import './ActiveBridge.css'
 
 export default function TollCollectionForm(props: BridgeProps) {
-  const bridge = props.bridge
+  const bridge = props.data
 
   const [toll, setToll] = useState({
     rockCandies: '',
@@ -21,31 +22,39 @@ export default function TollCollectionForm(props: BridgeProps) {
 
   return (
     <div>
+      <h2>Toll Troll Collection Form</h2>
+
       <form>
-        <input
-          placeholder="Goats🐐"
-          value={toll.goats}
-          onChange={handleChange}
-          name="goats"
-          type="number"
-        ></input>
-        <input
-          placeholder="Gold Rings💍"
-          value={toll.goldRings}
-          onChange={handleChange}
-          name="goldRings"
-          type="number"
-        ></input>
-        <input
-          placeholder="Rock Candies🤘"
-          value={toll.rockCandies}
-          onChange={handleChange}
-          name="rockCandies"
-          type="number"
-          max="99"
-          maxLength={2}
-        ></input>
-        <p>Total Toll:{Total}</p>
+        <div>
+          <input
+            placeholder="Goats🐐"
+            value={toll.goats}
+            onChange={handleChange}
+            name="goats"
+            type="number"
+          ></input>
+        </div>
+        <div>
+          <input
+            placeholder="Gold Rings💍"
+            value={toll.goldRings}
+            onChange={handleChange}
+            name="goldRings"
+            type="number"
+          ></input>
+        </div>
+        <div>
+          <input
+            placeholder="Rock Candies🤘"
+            value={toll.rockCandies}
+            onChange={handleChange}
+            name="rockCandies"
+            type="number"
+            max="99"
+            maxLength={2}
+          ></input>
+        </div>
+        <p>Total Toll Charge:{Total}</p>
         <button>Charge Toll</button>
       </form>
     </div>
