@@ -1,4 +1,3 @@
-import { Bridge } from '../../models/bridge.ts'
 import { getBridges } from '../api/bridge.ts'
 import { useQuery } from '@tanstack/react-query'
 
@@ -20,8 +19,8 @@ export default function Bridges() {
     <>
       <h1>Bridge Toll Calculater 🧌</h1>
       <ul>
-        {bridges.map((br) => {
-          return <li>{br.name}</li>
+        {bridges.map((br, index) => {
+          return <li key={index}>{br.name}</li>
         })}
       </ul>
     </>
