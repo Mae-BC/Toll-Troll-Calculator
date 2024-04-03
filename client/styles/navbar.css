@@ -9,7 +9,7 @@
 }
 
 .logo-image {
-  max-width: 5rem;
+  width: 6rem;
   margin: 0.5rem;
   padding: 3px 0 0 3px;
 }
@@ -19,5 +19,7 @@
 }
 
 .sign-in {
+  width: 6rem;
   color: rgb(254 250 225);
+  background-color: pink;
 }

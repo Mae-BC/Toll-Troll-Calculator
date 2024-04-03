@@ -1,5 +1,4 @@
 //@vitest-environment jsdom
-
 import {
   describe,
   it,
@@ -11,8 +10,6 @@ import {
 } from 'vitest'
 import {
   screen,
-  waitFor,
-  waitForElementToBeRemoved,
   within,
 } from '@testing-library/react'
 import { renderRoute } from '../../test/setup.tsx'
@@ -100,7 +97,7 @@ describe('<Bridges />', () => {
       },
     })
 
-    const { user, ...screen } = renderRoute('/')
+    const { ...screen } = renderRoute('/')
 
     const loginButton = screen.getByRole('button')
     const signedInText = screen.getByText(/signed in as:/i)

@@ -1,4 +1,3 @@
-import { Bridge } from '../../models/bridge.ts'
 import { getBridges } from '../api/bridge.ts'
 import { useQuery } from '@tanstack/react-query'
 
