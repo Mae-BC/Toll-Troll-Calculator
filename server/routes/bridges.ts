@@ -33,10 +33,8 @@ router.get('/activebridge/:id', async (req, res) => {
 router.get('/analytics/:troll/:bridge', async (req, res) => {
   const trollid = Number(req.params.troll)
   const bridgeid = Number(req.params.bridge)
-  console.log(trollid, bridgeid)
   try {
     const revenue = await db.getTrollsActiveBridgeRevenue(trollid, bridgeid)
-    console.log(revenue)
     res.json(revenue)
   } catch (error) {
     console.error(error)
@@ -47,8 +45,6 @@ router.get('/analytics/:troll/:bridge', async (req, res) => {
 //post toll submissions
 router.post('/toll', async (req, res) => {
   const newTollData = req.body
-  console.log(newTollData)
-
   try {
     await db.addToll(newTollData)
     res.status(201).send('Troll toll charged successfully')

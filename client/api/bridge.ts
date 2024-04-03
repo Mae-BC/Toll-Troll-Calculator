@@ -22,7 +22,6 @@ export async function getBridgeRevenueForTroll(
   trollid: number,
   bridgeid: number,
 ): Promise<Revenue> {
-  console.log(trollid, bridgeid)
   const res = await request.get(`${bridgeURL}/analytics/${trollid}/${bridgeid}`)
   return res.body
 }
