@@ -81,9 +81,9 @@ export default function TollCollectionForm(props: BridgeProps) {
         </div>
         <p>
           <strong>Total Toll Charge:</strong>
-          <hr />
-          {Total}
         </p>
+        <hr />
+        <p>{Total}</p>
         <button>Charge Toll</button>
       </form>
     </div>

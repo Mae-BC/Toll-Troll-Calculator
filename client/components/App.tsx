@@ -7,8 +7,8 @@ export default function AppLayout() {
     <>
       <main>
         <Navbar />
-        <Outlet />
         <ActiveBridge />
+        <Outlet />
       </main>
     </>
   )
