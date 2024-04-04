@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import * as api from '../api/bridge'
 import { useQuery } from '@tanstack/react-query'
 
@@ -10,7 +10,7 @@ function SingleBridge() {
     error,
     isLoading,
   } = useQuery({
-    queryKey: ['bridges'],
+    queryKey: ['bridge', id],
     queryFn: () => api.getBridgeById(Number(id)),
   })
 
@@ -30,6 +30,9 @@ function SingleBridge() {
         <li>Lanes: {bridge.lanes}</li>
         <li>Added By: {bridge.addedByUser}</li>
       </ul>
+      <Link to={'/'}>
+        <button>Home</button>
+      </Link>
     </div>
   )
 }

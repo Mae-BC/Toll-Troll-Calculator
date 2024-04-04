@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { getBridges } from '../api/bridge.ts'
+import { getBridges } from '../api/bridge.tsx'
 import { useQuery } from '@tanstack/react-query'
 import SaveBridge from './SaveBridge.tsx'
 
@@ -13,6 +13,7 @@ export default function Bridges() {
   if (error) {
     return <p>Your bridges are gone! What a massive error</p>
   }
+
   if (!bridges || isLoading) {
     return <p>Fetching bridges from auckland...</p>
   }

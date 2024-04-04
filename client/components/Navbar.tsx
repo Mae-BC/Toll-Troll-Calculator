@@ -12,8 +12,9 @@ export default function Navbar() {
   }
 
   const handleSignIn = () => {
-    loginWithRedirect()
+    loginWithRedirect({ authorizationParams: {redirectUri: `${window.location.origin}/register`} })
   }
+
   return (
     <div className="navbar">
       <Logo />
