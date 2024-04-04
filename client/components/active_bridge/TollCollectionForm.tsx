@@ -4,7 +4,6 @@ import './ActiveBridge.css'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { submitTollAnalytic } from '../../api/bridge'
 
-// maybe use just the id as a prop insead of data >?
 export default function TollCollectionForm(props: BridgeProps) {
   const bridgeid = props.data.activebridge
 
