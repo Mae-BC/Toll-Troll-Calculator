@@ -10,7 +10,7 @@ function SingleBridge() {
     error,
     isLoading,
   } = useQuery({
-    queryKey: ['bridges'],
+    queryKey: ['bridge', id],
     queryFn: () => api.getBridgeById(Number(id)),
   })
 

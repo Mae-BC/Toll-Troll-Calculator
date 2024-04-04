@@ -12,6 +12,7 @@ export default function Bridges() {
   if (error) {
     return <p>Your bridges are gone! What a massive error</p>
   }
+
   if (!bridges || isLoading) {
     return <p>Fetching bridges from auckland...</p>
   }
