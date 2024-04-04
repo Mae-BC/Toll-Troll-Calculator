@@ -24,19 +24,20 @@ const mockBridgeData = {
 describe('Stats component', () => {
   it('renders bridge stats correctly', async () => {
     nock('http://localhost')
-      .get('/api/v1/bridges/activebridge/2')
+      .get('/api/v1/bridges/activebridge/3')
       .reply(200, mockBridgeData)
     renderRoute('/')
-    console.log(mockBridgeData)
 
-    const revnueData = { revenue: 12030 }
+    const revenueData = { revenue: 12030 }
 
-    const revenueScope = nock('http://localhost')
+    nock('http://localhost')
       .get('/api/v1/bridges/analytics/3/2')
-      .reply(200, revnueData)
+      .reply(200, revenueData)
+
     renderRoute('/')
 
-    const bridgeName = await screen.findByText('Mock Bridge')
+    const bridgeName = await screen.findByText('Mock Bridge Stats')
+    // const input = await screen.findByText(/🐐/)
 
     //assert
     expect(bridgeName).toHaveTextContent('Mock Bridge')
