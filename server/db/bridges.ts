@@ -30,6 +30,16 @@ export async function getTrollsActiveBridge(id: number): Promise<ActiveBridge> {
     .first()
 }
 
+export async function getTrollsActiveBridgeByAuthId(
+  id: string,
+): Promise<ActiveBridge> {
+  return db('Bridges')
+    .select('*')
+    .join('Trolls', 'Trolls.activeBridge', 'Bridges.id')
+    .where('Trolls.auth0Id', id)
+    .first()
+}
+
 export async function getTrollsActiveBridgeRevenue(
   trollid: number,
   bridgeid: number,
