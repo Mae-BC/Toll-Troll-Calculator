@@ -52,7 +52,7 @@ export default function TollCollectionForm(props: BridgeProps) {
     <div>
       <h2>Toll Troll Collection Form</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <div>
           <input
             placeholder="Goats🐐"

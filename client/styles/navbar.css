@@ -22,4 +22,10 @@
   color: rgb(254 250 225);
   background-color: 174, 231, 182;
   border-radius: 0.2rem;
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-size: 4rem;
+  color: rgb(174, 231, 182);
 }

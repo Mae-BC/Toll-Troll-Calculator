@@ -5,7 +5,6 @@ import checkJwt, { JwtRequest } from '../auth0.ts'
 
 const router = express.Router()
 
-// GET /api/vi/bridges/activebridge/ - For grabbing logged in trolls active bridge
 router.get('/activebridge', checkJwt, async (req: JwtRequest, res) => {
   const id = req.auth?.sub
   console.log('i got hit')
@@ -26,7 +25,6 @@ router.get('/activebridge', checkJwt, async (req: JwtRequest, res) => {
   }
 })
 
-// GET /api/v1/bridges
 router.get('/', async (req, res) => {
   try {
     const bridges = await db.getBridges()
@@ -48,7 +46,6 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-// GET /api/vi/bridges/analytics/ - For grabbing logged in trolls revenue on their active bridge
 router.get('/analytics/:troll/:bridge', async (req, res) => {
   const trollid = Number(req.params.troll)
   const bridgeid = Number(req.params.bridge)
@@ -61,7 +58,6 @@ router.get('/analytics/:troll/:bridge', async (req, res) => {
   }
 })
 
-//post toll submissions
 router.post('/toll', async (req, res) => {
   const newTollData = req.body
   try {

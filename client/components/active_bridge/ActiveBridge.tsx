@@ -6,27 +6,13 @@ import '../../styles/ActiveBridge.css'
 import { useAuth0 } from '@auth0/auth0-react'
 
 export function ActiveBridge() {
-  // Needs to be updated with Auth implementation to get a query going with user information
-  // const Trollid = 1
-  //user.sub - this is what's going into the db
-
-  //need to get trollid by requesting the trollid that matchs the auth0Id field in Trolls table
-
-  // Query that grabs the logged in trolls active bridge as the data
   const { user, getAccessTokenSilently } = useAuth0()
-
-  // console.log(user)
   const Trollid = user?.sub
-  console.log(Trollid)
-  // if (Trollid === auth0Id {
-  //   show logged in bridge page
-  // }
 
   const {
     data: bridge,
     isLoading,
     isError,
-    error,
   } = useQuery({
     queryKey: ['activebridge', Trollid],
     queryFn: async () => {
@@ -61,8 +47,6 @@ export function ActiveBridge() {
   }
 
   const activeBridge = { ...bridge }
-  console.log(activeBridge)
-
   if (bridge)
     return (
       <div className="active-bridge-container">
