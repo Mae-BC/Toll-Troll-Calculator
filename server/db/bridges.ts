@@ -24,3 +24,7 @@ export async function isFav(bridgeid: number, trollid: number) {
   console.log(answer)
   return answer
 }
+
+export async function getSavedBridges(trollid: string) {
+  return await db('FavouriteBridgesJunction').where({ trollid })
+}

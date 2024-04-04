@@ -11,5 +11,5 @@ export interface Bridge {
 
 export interface BridgeSave {
   bridgeid: number
-  trollid: number
+  trollid: string
 }

@@ -18,11 +18,8 @@ router.get('/', async (req, res) => {
 
 router.post('/fav', async (req, res) => {
   const bridgeid = parseInt(req.body.data.bridgeid)
-  const trollid = parseInt(req.body.data.trollid)
-  console.log('ive been hit at /fav')
-  console.log(req.body.data)
-  console.log(bridgeid)
-  console.log(trollid)
+  const trollid = req.body.data.trollid
+
   try {
     const favStatus = await db.isFav(bridgeid, trollid)
     if (favStatus) {
@@ -35,6 +32,17 @@ router.post('/fav', async (req, res) => {
   } catch (error) {
     console.error(error)
     res.status(500).send('shits fucked')
+  }
+})
+
+router.get('/fav/:trollid', async (req, res) => {
+  const trollid = req.params.trollid
+  try {
+    const savedBridges = await db.getSavedBridges(trollid)
+    res.json(savedBridges)
+  } catch (error) {
+    console.error(error)
+    res.status(500).send('Error fetching saved bridges')
   }
 })
 

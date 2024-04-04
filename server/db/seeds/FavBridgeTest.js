@@ -4,11 +4,11 @@ export async function seed(knex) {
   await knex('FavouriteBridgesJunction').insert([
     {
       bridgeid: 1,
-      trollid: 3,
+      trollid: 'test',
     },
     {
       bridgeid: 2,
-      trollid: 5,
+      trollid: 'test',
     },
   ])
 }

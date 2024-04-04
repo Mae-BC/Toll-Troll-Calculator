@@ -12,3 +12,8 @@ export async function saveBridge(data: BridgeSave) {
   const res = await request.post(`${bridgeURL}/fav`).send({ data })
   return res.body
 }
+
+export async function savedFav(id: string) {
+  const res = await request.get(`${bridgeURL}/fav/${id}`).send({ id })
+  return res.body
+}

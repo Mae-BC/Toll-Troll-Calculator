@@ -23,7 +23,7 @@ export default function Bridges() {
         {bridges.map((br) => {
           return (
             <li key={br.id}>
-              <SaveBridge props={br.id} />
+              <SaveBridge id={br.id} />
               {br.name}
             </li>
           )
