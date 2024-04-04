@@ -1,10 +1,5 @@
 import request from 'superagent'
-import {
-  AnalyticRequest,
-  Bridge,
-  Revenue,
-  NewToll,
-} from '../../models/bridge.ts'
+import { Bridge, Revenue, NewToll } from '../../models/bridge.tsx'
 
 const bridgeURL = '/api/v1/bridges'
 
