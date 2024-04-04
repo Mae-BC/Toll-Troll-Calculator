@@ -2,7 +2,6 @@
 
 import { it, expect, beforeAll, describe } from 'vitest'
 import { screen } from '@testing-library/react'
-import Stats from '../active_bridge/Stats.tsx'
 import { renderRoute } from '../../test/setup.tsx'
 import nock from 'nock'
 
@@ -37,7 +36,7 @@ describe('Stats component', () => {
     renderRoute('/')
 
     const bridgeName = await screen.findByText('Mock Bridge Stats')
-    
+
     expect(
       await screen.findByText('1🐐', {
         exact: false,
