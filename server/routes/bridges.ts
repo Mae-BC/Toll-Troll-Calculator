@@ -29,8 +29,11 @@ router.get('/:id', async (req, res) => {
 // GET /api/vi/bridges/activebridge/ - For grabbing logged in trolls active bridge
 router.get('/activebridge/:id', async (req, res) => {
   const id = Number(req.params.id)
+  console.log('i got hit')
+  console.log(id)
   try {
     const bridge = await db.getTrollsActiveBridge(id)
+    console.log(bridge)
     res.json(bridge)
   } catch (error) {
     console.error(error)

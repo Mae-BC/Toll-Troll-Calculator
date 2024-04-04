@@ -17,6 +17,7 @@ h2 {
   font-size: 1rem;
   font-family: ui-sans-serif, system-ui, Helvetica;
   border-radius: 3rem;
+  margin: 2rem;
 }
 
 .component-container {

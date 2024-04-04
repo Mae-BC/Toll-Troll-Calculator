@@ -31,7 +31,7 @@ function SingleBridge() {
         <li>Added By: {bridge.addedByUser}</li>
       </ul>
       <Link to={'/'}>
-        <button>Home</button>
+        <button>Back</button>
       </Link>
     </div>
   )

@@ -7,8 +7,8 @@ import SingleBridge from './components/SingleBridge.tsx'
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
-    <Route index element={<Bridges />} />
+    {/* <Route index element={<Bridges />} /> */}
     <Route path="/:id" element={<SingleBridge />} />
     <Route path="/register" element={<LoginRedirect />} />
-  </Route>
+  </Route>,
 )

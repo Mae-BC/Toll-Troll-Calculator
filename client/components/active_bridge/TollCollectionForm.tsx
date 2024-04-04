@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { BridgeProps, NewToll } from '../../../models/bridge'
-import './ActiveBridge.css'
+import '../../styles/ActiveBridge.css'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { submitTollAnalytic } from '../../api/bridge'
 
