@@ -19,7 +19,8 @@ export const useTrollMutation = <TData = unknown, TVariables = unknown>(mutation
   const mutation = useMutation({
     mutationFn,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['preferences'] })
+      queryClient.invalidateQueries({ queryKey: ['troll'] })
+      queryClient.invalidateQueries({ queryKey: ['bridge'] })
     }
   })
 

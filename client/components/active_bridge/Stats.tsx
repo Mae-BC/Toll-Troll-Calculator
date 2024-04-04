@@ -1,5 +1,5 @@
 import { BridgeProps } from '../../../models/bridge'
-import { getBridgeRevenueForTroll } from '../../api/bridge'
+import { getBridgeRevenueForTroll } from '../../api/bridge.ts'
 import './ActiveBridge.css'
 import { useQuery } from '@tanstack/react-query'
 

@@ -4,7 +4,29 @@ import { ActiveBridge, Bridge, Revenue, NewToll } from '../../models/bridge.tsx'
 const db = connection
 
 export async function getBridges(): Promise<Bridge[]> {
-  return db('bridges').select('*')
+  return await db('bridges').select('*')
+}
+
+export async function saveFavBridge(bridgeid: number, trollid: number) {
+  return await db('FavouriteBridgesJunction').insert({ bridgeid, trollid })
+}
+
+export async function deleteFavBridge(bridgeid: number, trollid: number) {
+  return await db('FavouriteBridgesJunction')
+    .where({ bridgeid, trollid })
+    .delete()
+}
+
+export async function isFav(bridgeid: number, trollid: number) {
+  const answer = await db('FavouriteBridgesJunction')
+    .where({ bridgeid, trollid })
+    .first()
+  console.log(answer)
+  return answer
+}
+
+export async function getSavedBridges(trollid: string) {
+  return await db('FavouriteBridgesJunction').where({ trollid })
 }
 
 export async function getBridgeById(id: number): Promise<Bridge> {
