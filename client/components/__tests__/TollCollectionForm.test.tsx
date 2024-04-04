@@ -6,9 +6,6 @@ import { describe } from 'node:test'
 import { renderRoute } from '../../test/setup.tsx'
 import nock from 'nock'
 
-// Testing state change from user events
-// Testng the submit hits the endpoint
-
 beforeAll(() => nock.disableNetConnect())
 
 const mockBridgeData = {

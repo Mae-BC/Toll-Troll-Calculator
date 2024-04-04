@@ -48,3 +48,7 @@ export interface AnalyticRequest {
   trollid: number
   bridgeid: number
 }
+export interface BridgeSave {
+  bridgeid: number
+  trollid: string
+}

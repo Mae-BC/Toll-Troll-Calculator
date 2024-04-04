@@ -1,6 +1,11 @@
 import { BridgeProps } from '../../../models/bridge'
+<<<<<<< HEAD
 import { getBridgeRevenueForTroll } from '../../api/bridge'
 import '../../styles/ActiveBridge.css'
+=======
+import { getBridgeRevenueForTroll } from '../../api/bridge.ts'
+import './ActiveBridge.css'
+>>>>>>> main
 import { useQuery } from '@tanstack/react-query'
 
 export default function Stats(props: BridgeProps) {
