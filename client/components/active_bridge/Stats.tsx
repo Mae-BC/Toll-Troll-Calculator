@@ -1,13 +1,12 @@
 import { BridgeProps } from '../../../models/bridge'
 import { getBridgeRevenueForTroll } from '../../api/bridge.ts'
-import './ActiveBridge.css'
+import '../../styles/ActiveBridge.css'
 import { useQuery } from '@tanstack/react-query'
 
 export default function Stats(props: BridgeProps) {
   const bridge = props.data
 
-  // Needs to be updated with Auth implementation to get a query going with user information
-  const trollid = 3
+  const trollid = 1
   const bridgeid = bridge.activebridge
 
   const {

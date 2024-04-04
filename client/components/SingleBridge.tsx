@@ -33,7 +33,7 @@ function SingleBridge() {
       </ul>
       <SetActiveBridgeButton id={Number(id)} addedByUser={bridge.addedByUser} />
       <Link to={'/'}>
-        <button>Home</button>
+        <button>Back</button>
       </Link>
     </div>
   )
