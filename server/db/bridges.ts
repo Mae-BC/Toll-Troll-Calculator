@@ -28,3 +28,18 @@ export async function isFav(bridgeid: number, trollid: number) {
 export async function getSavedBridges(trollid: string) {
   return await db('FavouriteBridgesJunction').where({ trollid })
 }
+
+export async function getBridgeById(id: number): Promise<Bridge> {
+  return db('bridges')
+    .where('id', id)
+    .select(
+      'id',
+      ' name',
+      ' location',
+      ' type',
+      ' year_built as yearBuilt',
+      ' length_meters as lengthMeters',
+      'added_by_user as addedByUser',
+    )
+    .first()
+}

@@ -1,5 +1,7 @@
 node_modules
+coverage
 bundle.*
 *.log
 *.sqlite3
 .env
+

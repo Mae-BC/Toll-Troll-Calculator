@@ -17,3 +17,8 @@ export async function savedFav(id: string) {
   const res = await request.get(`${bridgeURL}/fav/${id}`).send({ id })
   return res.body
 }
+
+export async function getBridgeById(id: number): Promise<Bridge> {
+  const res = await request.get(`${bridgeURL}/${id}`)
+  return res.body
+}

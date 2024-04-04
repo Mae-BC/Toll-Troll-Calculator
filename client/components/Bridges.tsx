@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { getBridges } from '../api/bridge.ts'
 import { useQuery } from '@tanstack/react-query'
 import SaveBridge from './SaveBridge.tsx'
@@ -20,11 +21,11 @@ export default function Bridges() {
     <>
       <h1>Bridge Toll Calculater 🧌</h1>
       <ul>
-        {bridges.map((br) => {
+        {bridges.map((bridge) => {
           return (
-            <li key={br.id}>
-              <SaveBridge id={br.id} />
-              {br.name}
+            <li key={bridge.id}>
+              <Link to={`/${bridge.id}`}>{bridge.name}</Link>
+              <SaveBridge id={bridge.id} />
             </li>
           )
         })}
