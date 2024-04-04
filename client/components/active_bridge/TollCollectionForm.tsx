@@ -20,6 +20,9 @@ export default function TollCollectionForm(props: BridgeProps) {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['income'] })
     },
+    onError: (error) => {
+      console.log('Submission Failed', error)
+    },
   })
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,6 +60,7 @@ export default function TollCollectionForm(props: BridgeProps) {
             onChange={handleChange}
             name="goats"
             type="number"
+            aria-label="Number of Goats"
           ></input>
         </div>
         <div>
@@ -66,6 +70,9 @@ export default function TollCollectionForm(props: BridgeProps) {
             onChange={handleChange}
             name="goldRings"
             type="number"
+            max="99"
+            maxLength={2}
+            aria-label="Number of Gold Rings"
           ></input>
         </div>
         <div>
@@ -77,6 +84,7 @@ export default function TollCollectionForm(props: BridgeProps) {
             type="number"
             max="99"
             maxLength={2}
+            aria-label="Number of Rock Candies"
           ></input>
         </div>
         <p>

@@ -14,16 +14,16 @@ export interface BridgeProps {
 }
 
 export interface ActiveBridge {
-  id: string
-  name: string
-  location: string
-  type: string
-  yearBuilt: number
-  lengthMeters: number
-  lanes: number
-  addedByUser: null
-  auth0: string
   activebridge: number
+  added_by_user: null
+  auth0: string
+  id: string
+  lanes: number
+  length_meters: number
+  location: string
+  name: string
+  type: string
+  year_built: number
 }
 
 export interface TollAnalytic {

@@ -13,19 +13,21 @@ export function ActiveBridge() {
     data: bridge,
     isLoading,
     isError,
+    error,
   } = useQuery({
     queryKey: ['activebridge', Trollid],
     queryFn: () => getActiveBridgeForUser(Trollid),
   })
 
   if (isError || !bridge) {
-    return <p>Unable to retrieve Trolls active bridge</p>
+    return <p>Unable to retrieve Trolls active bridge:{String(error)}</p>
   }
   if (isLoading) {
     return <p>Grabbing your Bridge</p>
   }
 
   const activeBridge = { ...bridge }
+  console.log(activeBridge)
 
   return (
     <div className="active-bridge-container">

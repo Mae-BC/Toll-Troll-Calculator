@@ -39,7 +39,7 @@ describe('getTrollsActiveBridge', () => {
   it('should give the trolls active bridge data', async () => {
     const trollId = 3
     const activeBridge = await getTrollsActiveBridge(trollId)
-    console.log(activeBridge)
+    // console.log(activeBridge)
     expect(activeBridge.activebridge).toBe(2)
     expect(activeBridge.name).toBe('Grafton Bridge')
   })

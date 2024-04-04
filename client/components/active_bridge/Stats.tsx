@@ -14,19 +14,20 @@ export default function Stats(props: BridgeProps) {
     data: totalrevenue,
     isLoading,
     isError,
+    error,
   } = useQuery({
     queryKey: ['income', trollid],
     queryFn: () => getBridgeRevenueForTroll(trollid, bridgeid),
   })
 
   if (isError || !bridge) {
-    return <p>Unable to retrieve your revenue at this time.</p>
+    return <p>Unable to retrieve your revenue at this time. {String(error)}</p>
   }
   if (isLoading) {
     return <p>Grabbing your toll data</p>
   }
 
-  const totalRockCandies = totalrevenue?.revenue
+  const totalRockCandies = totalrevenue?.revenue ?? 0
   const goats = Math.floor(totalRockCandies / 10000)
   const goldRings = Math.floor((totalRockCandies % 10000) / 100)
   const remainingRockCandies = totalRockCandies % 100
@@ -44,11 +45,11 @@ export default function Stats(props: BridgeProps) {
         </li>
         <li>
           <strong>Year Built: </strong>
-          {bridge.yearBuilt}
+          {bridge.year_built}
         </li>
         <li>
           <strong>Length: </strong>
-          {bridge.lengthMeters} meters
+          {bridge.length_meters} meters
         </li>
         <li>
           <strong>Your Troll Tolls Total Income: </strong>

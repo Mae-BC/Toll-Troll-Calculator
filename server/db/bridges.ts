@@ -21,16 +21,8 @@ export async function getBridgeById(id: number): Promise<Bridge> {
     )
     .first()
 }
-//NOTE 4 TYLER
-export async function getTrollsActiveBridge(id: number): Promise<ActiveBridge> {
-  // Note: in the test the ids of the bridges start at 14 and increase from there.
-  // The troll data assumed the ids started at 1,2,3
-  // seed issue reff to file notes in  0_clean.js
-  const troll = await db('Trolls').select('*').where('id', id).first()
-  console.log(troll.activebridge)
-  const bridges = await getBridges()
-  console.log(bridges)
 
+export async function getTrollsActiveBridge(id: number): Promise<ActiveBridge> {
   return db('bridges')
     .select('*')
     .join('Trolls', 'Trolls.activebridge', 'bridges.id')
@@ -42,11 +34,16 @@ export async function getTrollsActiveBridgeRevenue(
   trollid: number,
   bridgeid: number,
 ): Promise<Revenue> {
-  return db('TollAnalytics')
+  const result = await db('TollAnalytics')
     .where({ bridgeid })
     .where('troll_id', trollid)
     .sum('revenue as revenue')
     .first()
+
+  if (!result)
+    throw new Error('No Revenue found for the specified troll and bridge.')
+
+  return result
 }
 
 export async function addToll(newTollData: NewToll) {
