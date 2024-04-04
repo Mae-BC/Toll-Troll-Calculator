@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { getBridges } from '../api/bridge.ts'
+import { getBridges } from '../api/bridge.tsx'
 import { useQuery } from '@tanstack/react-query'
 
 export default function Bridges() {
