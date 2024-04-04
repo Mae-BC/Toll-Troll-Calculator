@@ -11,5 +11,4 @@ export const addTroll = async (auth0Id: string, db = connection) => {
   return db('trolls')
     .insert({ auth0Id })
     .returning('auth0Id')
-    .first()
 }
