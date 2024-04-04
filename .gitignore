@@ -4,4 +4,4 @@ bundle.*
 *.log
 *.sqlite3
 .env
-
+thunder-client.html
