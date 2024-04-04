@@ -3,10 +3,14 @@ import Stats from './Stats'
 import TollCollectionForm from './TollCollectionForm'
 import { getActiveBridgeForUser } from '../../api/bridge'
 import '../../styles/ActiveBridge.css'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export function ActiveBridge() {
   // Needs to be updated with Auth implementation to get a query going with user information
   const Trollid = 1
+
+  const { user } = useAuth0()
+  console.log(user)
 
   // Query that grabs the logged in trolls active bridge as the data
   const {
