@@ -22,7 +22,7 @@ export default function LoginRedirect() {
       }
     }
     res()
-  }, [navigate, troll, user])
+  }, [navigate, troll.data, user])
 
   return (
     <>
