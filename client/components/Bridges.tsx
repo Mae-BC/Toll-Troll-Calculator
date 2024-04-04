@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import { getBridges } from '../api/bridge.tsx'
+import { getBridges } from '../api/bridge.ts'
 import { useQuery } from '@tanstack/react-query'
+import SaveBridge from './SaveBridge.tsx'
 
 export default function Bridges() {
   const {
@@ -25,6 +26,7 @@ export default function Bridges() {
           return (
             <li key={bridge.id}>
               <Link to={`/${bridge.id}`}>{bridge.name}</Link>
+              <SaveBridge id={bridge.id} />
             </li>
           )
         })}
