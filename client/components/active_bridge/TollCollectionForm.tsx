@@ -41,7 +41,7 @@ export default function TollCollectionForm(props: BridgeProps) {
     const newToll = {
       bridgeid,
       revenue,
-      troll_id: 3,
+      troll_id: 1,
     }
     mutation.mutate(newToll)
   }
