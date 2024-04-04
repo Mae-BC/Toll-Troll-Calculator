@@ -1,10 +1,30 @@
 import express from 'express'
 
 import * as db from '../db/bridges.ts'
+import checkJwt, { JwtRequest } from '../auth0.ts'
 
 const router = express.Router()
 
-// GET /api/v1/bridges
+router.get('/activebridge', checkJwt, async (req: JwtRequest, res) => {
+  const id = req.auth?.sub
+  console.log('i got hit')
+  console.log(id)
+  console.log(req.auth)
+
+  if (id === undefined) {
+    res.sendStatus(401)
+    return
+  }
+  try {
+    const bridge = await db.getTrollsActiveBridgeByAuthId(id)
+    console.log(bridge)
+    res.json(bridge)
+  } catch (error) {
+    console.error(error)
+    res.status(500).send('Something went wrong')
+  }
+})
+
 router.get('/', async (req, res) => {
   try {
     const bridges = await db.getBridges()
@@ -56,19 +76,6 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-// GET /api/vi/bridges/activebridge/ - For grabbing logged in trolls active bridge
-router.get('/activebridge/:id', async (req, res) => {
-  const id = Number(req.params.id)
-  try {
-    const bridge = await db.getTrollsActiveBridge(id)
-    res.json(bridge)
-  } catch (error) {
-    console.error(error)
-    res.status(500).send('Something went wrong')
-  }
-})
-
-// GET /api/vi/bridges/analytics/ - For grabbing logged in trolls revenue on their active bridge
 router.get('/analytics/:troll/:bridge', async (req, res) => {
   const trollid = Number(req.params.troll)
   const bridgeid = Number(req.params.bridge)
@@ -81,7 +88,6 @@ router.get('/analytics/:troll/:bridge', async (req, res) => {
   }
 })
 
-//post toll submissions
 router.post('/toll', async (req, res) => {
   const newTollData = req.body
   try {

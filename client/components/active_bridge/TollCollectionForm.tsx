@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { BridgeProps, NewToll } from '../../../models/bridge'
-import './ActiveBridge.css'
+import '../../styles/ActiveBridge.css'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { submitTollAnalytic } from '../../api/bridge'
 
@@ -40,7 +40,7 @@ export default function TollCollectionForm(props: BridgeProps) {
     const newToll = {
       bridgeid,
       revenue,
-      troll_id: 3,
+      troll_id: 1,
     }
     mutation.mutate(newToll)
   }
@@ -51,7 +51,7 @@ export default function TollCollectionForm(props: BridgeProps) {
     <div>
       <h2>Toll Troll Collection Form</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <div>
           <input
             placeholder="Goats🐐"
