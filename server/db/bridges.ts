@@ -3,7 +3,7 @@ import { Bridge } from '../../models/bridge.ts'
 
 const db = connection
 
-export async function getBridges(db = connection): Promise<Bridge[]> {
+export async function getBridges(): Promise<Bridge[]> {
   return await db('bridges').select('*')
 }
 
