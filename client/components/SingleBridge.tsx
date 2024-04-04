@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import * as api from '../api/bridge'
 import { useQuery } from '@tanstack/react-query'
+import SetActiveBridgeButton from './SetActiveBridgeButton'
 
 function SingleBridge() {
   const { id } = useParams()
@@ -30,6 +31,7 @@ function SingleBridge() {
         <li>Lanes: {bridge.lanes}</li>
         <li>Added By: {bridge.addedByUser}</li>
       </ul>
+      <SetActiveBridgeButton id={Number(id)} addedByUser={bridge.addedByUser} />
       <Link to={'/'}>
         <button>Back</button>
       </Link>

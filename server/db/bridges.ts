@@ -47,7 +47,7 @@ export async function getBridgeById(id: number): Promise<Bridge> {
 export async function getTrollsActiveBridge(id: number): Promise<ActiveBridge> {
   return db('Bridges')
     .select('*')
-    .join('Trolls', 'Trolls.activeBridge', 'Bridges.id')
+    .join('Trolls', 'Trolls.active_bridge_id', 'bridges.id')
     .where('Trolls.id', id)
     .first()
 }
@@ -57,7 +57,7 @@ export async function getTrollsActiveBridgeByAuthId(
 ): Promise<ActiveBridge> {
   return db('Bridges')
     .select('*')
-    .join('Trolls', 'Trolls.activeBridge', 'Bridges.id')
+    .join('Trolls', 'Trolls.active_bridge_id', 'Bridges.id')
     .where('Trolls.auth0Id', id)
     .first()
 }
