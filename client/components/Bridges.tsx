@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { getBridges } from '../api/bridge.ts'
 import { useQuery } from '@tanstack/react-query'
 
@@ -11,6 +12,7 @@ export default function Bridges() {
   if (error) {
     return <p>Your bridges are gone! What a massive error</p>
   }
+
   if (!bridges || isLoading) {
     return <p>Fetching bridges from auckland...</p>
   }
@@ -19,8 +21,12 @@ export default function Bridges() {
     <>
       <h1>Bridge Toll Calculater 🧌</h1>
       <ul>
-        {bridges.map((br, index) => {
-          return <li key={index}>{br.name}</li>
+        {bridges.map((bridge) => {
+          return (
+            <li key={bridge.id}>
+              <Link to={`/${bridge.id}`}>{bridge.name}</Link>
+            </li>
+          )
         })}
       </ul>
     </>
