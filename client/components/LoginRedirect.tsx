@@ -16,7 +16,6 @@ export default function LoginRedirect() {
       } else {
         if (troll.isSuccess && user?.sub) {
           const token = await getAccessTokenSilently()
-          console.log('🕺', token)
           troll.add.mutate({ newTroll: user?.sub, token })
           navigate('/')
         }

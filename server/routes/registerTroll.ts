@@ -6,7 +6,6 @@ import * as db from '../db/registerTroll.js'
 const router = express.Router()
 
 router.get('/', checkJwt, async (req: JwtRequest, res) => {
-  console.log('🧌', 'hit')
   try {
     const auth0Id = req.auth?.sub as string
     const troll = await db.getTrollById(auth0Id)
@@ -19,7 +18,6 @@ router.get('/', checkJwt, async (req: JwtRequest, res) => {
 })
 
 router.post('/', checkJwt, async (req: JwtRequest, res) => {
-  console.log('👀', 'hit')
   try {
     const auth0Id = req.auth?.sub as string
     if (auth0Id === null) {

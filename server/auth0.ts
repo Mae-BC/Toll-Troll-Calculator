@@ -5,7 +5,7 @@ import { JwtPayload } from 'jsonwebtoken'
 import jwks from 'jwks-rsa'
 
 // TODO: set the domain and audience (API Identifier)
-const domain = 'toho.au.auth0.com'
+const domain = 'https://toho.au.auth0.com'
 const audience = 'https://troll-toll-calculator/api'
 
 const checkJwt = jwt({
