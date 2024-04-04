@@ -19,11 +19,12 @@ export function ActiveBridge() {
     queryFn: () => getActiveBridgeForUser(Trollid),
   })
 
-  if (isError || !bridge) {
-    return <p>Unable to retrieve Trolls active bridge:{String(error)}</p>
-  }
   if (isLoading) {
     return <p>Grabbing your Bridge</p>
+  }
+
+  if (isError || !bridge) {
+    return <p>Unable to retrieve Trolls active bridge:{String(error)}</p>
   }
 
   const activeBridge = { ...bridge }
