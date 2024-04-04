@@ -37,11 +37,14 @@ describe('Stats component', () => {
     renderRoute('/')
 
     const bridgeName = await screen.findByText('Mock Bridge Stats')
-    // const input = await screen.findByText(/🐐/)
+    
+    expect(
+      await screen.findByText('1🐐', {
+        exact: false,
+      }),
+    ).toBeVisible()
 
     //assert
     expect(bridgeName).toHaveTextContent('Mock Bridge')
   })
-
-  //it
 })
